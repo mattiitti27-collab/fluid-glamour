@@ -50,7 +50,7 @@ const MetodoSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="glass-panel p-10 rounded-[2rem] group flex flex-col items-center text-center hover:border-primary/30 transition-all"
+              className="glass-panel p-10 rounded-[2rem] group flex flex-col items-center text-center hover:border-primary/30 transition-all relative overflow-hidden"
             >
               <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-8 border group-hover:scale-110 transition-transform ${
                 card.color === "primary" ? "bg-primary/10 border-primary/20 shadow-[0_0_20px_rgba(157,78,221,0.2)]" :
