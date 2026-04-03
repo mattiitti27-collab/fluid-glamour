@@ -108,14 +108,16 @@ const ThreeBackground = () => {
     setIsMobile(window.innerWidth <= 768);
   }, []);
 
+  // Skip 3D entirely on mobile for battery life
+  if (isMobile) return null;
+
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 50 }}
-        dpr={isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5)}
-        gl={{ antialias: !isMobile, powerPreference: "high-performance", alpha: true }}
+        dpr={Math.min(window.devicePixelRatio, 1.5)}
+        gl={{ antialias: true, powerPreference: "high-performance", alpha: true }}
         style={{ background: "transparent" }}
-        frameloop={isMobile ? "demand" : "always"}
       >
         <Scene />
       </Canvas>
