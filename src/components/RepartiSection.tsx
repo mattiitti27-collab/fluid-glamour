@@ -73,6 +73,9 @@ const RepartiSection = () => {
                 onClick={() => setActiveReparto(activeReparto === r.id ? null : r.id)}
                 className={`glass-panel p-5 md:p-8 rounded-[2rem] text-left relative overflow-hidden h-72 transition-all group hover:${c.border} ${activeReparto === r.id ? c.border : ""}`}
               >
+                <div className="absolute -bottom-6 -right-6 opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none">
+                  <r.icon className={`w-36 h-36 md:w-44 md:h-44 ${c.text}`} />
+                </div>
                 <div className={`absolute top-4 right-4 opacity-30 group-hover:opacity-50 transition-all group-hover:scale-110`}>
                   <r.icon className={`w-16 h-16 md:w-20 md:h-20 ${c.text}`} />
                 </div>
