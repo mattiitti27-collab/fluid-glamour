@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import ScrollProgress from "@/components/ScrollProgress";
+import AmbientBackground from "@/components/AmbientBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MetodoSection from "@/components/MetodoSection";
@@ -18,6 +19,8 @@ const Index = () => {
   return (
     <div className="relative min-h-screen scroll-smooth">
       <ScrollProgress />
+
+      <AmbientBackground />
 
       <Suspense fallback={null}>
         <ThreeBackground />
