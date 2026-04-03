@@ -52,6 +52,10 @@ const MetodoSection = () => {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="glass-panel p-10 rounded-[2rem] group flex flex-col items-center text-center hover:border-primary/30 transition-all relative overflow-hidden"
             >
+              {/* Background watermark icon */}
+              <div className="absolute -bottom-4 -right-4 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none">
+                <card.icon className="w-40 h-40 md:w-48 md:h-48" />
+              </div>
               <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-8 border group-hover:scale-110 transition-transform ${
                 card.color === "primary" ? "bg-primary/10 border-primary/20 shadow-[0_0_20px_rgba(157,78,221,0.2)]" :
                 card.color === "accent" ? "bg-accent/10 border-accent/20 shadow-[0_0_20px_rgba(0,243,255,0.2)]" :
