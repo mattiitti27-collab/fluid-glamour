@@ -54,6 +54,14 @@
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Smooth scroll everywhere */
+  html {
+    scroll-behavior: smooth;
   }
 
   /* Scrollbar */
