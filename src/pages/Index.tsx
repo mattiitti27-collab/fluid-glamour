@@ -20,6 +20,8 @@ const Index = () => {
     <div className="relative min-h-screen scroll-smooth">
       <ScrollProgress />
 
+      <AmbientBackground />
+
       <Suspense fallback={null}>
         <ThreeBackground />
       </Suspense>
