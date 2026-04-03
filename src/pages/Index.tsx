@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import ScrollProgress from "@/components/ScrollProgress";
+import AmbientBackground from "@/components/AmbientBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MetodoSection from "@/components/MetodoSection";
