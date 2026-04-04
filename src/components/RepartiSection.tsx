@@ -32,10 +32,10 @@ const subjects: Record<RepartoId, { name: string; highlighted?: boolean }[]> = {
 };
 
 const colorStyles: Record<string, { active: string; text: string; bg: string; border: string }> = {
-  primary: { active: "border-primary/50", text: "text-primary", bg: "bg-primary/10", border: "border-primary/20" },
-  accent: { active: "border-accent/50", text: "text-accent", bg: "bg-accent/10", border: "border-accent/20" },
-  warning: { active: "border-warning/50", text: "text-warning", bg: "bg-warning/10", border: "border-warning/20" },
-  success: { active: "border-success/50", text: "text-success", bg: "bg-success/10", border: "border-success/20" },
+  primary: { active: "border-primary/40", text: "text-primary", bg: "bg-primary/10", border: "border-primary/20" },
+  accent: { active: "border-accent/40", text: "text-accent", bg: "bg-accent/10", border: "border-accent/20" },
+  warning: { active: "border-warning/40", text: "text-warning", bg: "bg-warning/10", border: "border-warning/20" },
+  success: { active: "border-success/40", text: "text-success", bg: "bg-success/10", border: "border-success/20" },
 };
 
 const RepartiSection = () => {
@@ -47,49 +47,47 @@ const RepartiSection = () => {
   };
 
   return (
-    <section id="reparti" className="py-20 sm:py-32 px-5 relative z-10">
-      <div className="max-w-7xl mx-auto">
+    <section id="reparti" className="py-14 sm:py-24 px-4 relative z-10">
+      <div className="max-w-5xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 40, damping: 18 }}
-          className="text-3xl sm:text-4xl md:text-6xl font-black mb-10 sm:mb-16 text-center italic uppercase tracking-tight"
+          transition={{ type: "spring", stiffness: 50, damping: 20 }}
+          className="text-2xl sm:text-3xl md:text-5xl font-black mb-6 sm:mb-10 text-center italic uppercase tracking-tight"
         >
-          Reparti <span className="text-primary drop-shadow-[0_0_20px_rgba(157,78,221,0.4)]">Attivi</span>
+          Reparti <span className="text-primary">Attivi</span>
         </motion.h2>
 
-        {/* Cards - 2x2 grid mobile, 4 cols desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-8 sm:mb-14">
+        {/* Cards grid - 2x2 */}
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-4 mb-5 sm:mb-8">
           {reparti.map((r, i) => {
             const c = colorStyles[r.color];
             const isActive = activeReparto === r.id;
             return (
               <motion.button
                 key={r.id}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, type: "spring", stiffness: 50, damping: 18 }}
+                transition={{ delay: i * 0.06, type: "spring", stiffness: 60, damping: 20 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => setActiveReparto(isActive ? null : r.id)}
-                className={`glass-panel p-4 sm:p-6 rounded-[1.2rem] sm:rounded-[1.8rem] text-left relative overflow-hidden h-44 sm:h-64 transition-all duration-500 ${isActive ? c.active : "border-transparent"}`}
+                className={`glass-panel p-3.5 sm:p-5 rounded-xl sm:rounded-2xl text-left relative overflow-hidden h-32 sm:h-44 transition-all duration-300 ${isActive ? c.active : "border-transparent"}`}
               >
-                {/* Watermark icon */}
-                <div className="absolute -bottom-3 -right-3 opacity-[0.05] pointer-events-none">
-                  <r.icon className={`w-24 h-24 sm:w-36 sm:h-36 ${c.text}`} />
+                {/* Watermark */}
+                <div className="absolute -bottom-2 -right-2 opacity-[0.05] pointer-events-none">
+                  <r.icon className={`w-16 h-16 sm:w-24 sm:h-24 ${c.text}`} />
                 </div>
-                {/* Top icon */}
-                <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 opacity-25`}>
-                  <r.icon className={`w-10 h-10 sm:w-14 sm:h-14 ${c.text}`} />
-                </div>
-                <div className="relative z-10 h-full flex flex-col justify-end">
-                  <div className={`w-6 h-[2px] ${c.bg} mb-2 rounded`} style={{ backgroundColor: `hsl(var(--${r.color}))` }} />
-                  <h3 className="text-sm sm:text-lg font-black uppercase italic leading-tight">{r.title}</h3>
-                  <p className="text-[8px] sm:text-[10px] font-bold tracking-[0.15em] text-muted-foreground/50 uppercase mt-1">{r.sub}</p>
-                  <div className={`mt-3 ${c.bg} ${c.border} border text-foreground/80 text-[8px] sm:text-[9px] font-black uppercase tracking-widest py-1.5 px-2 rounded-lg flex items-center justify-center gap-1 transition-all`}>
-                    <ChevronDown className={`w-2.5 h-2.5 transition-transform duration-300 ${isActive ? "rotate-180" : ""}`} />
-                    {isActive ? "Chiudi" : "Espandi"}
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <r.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${c.text} opacity-40`} />
+                  <div>
+                    <h3 className="text-[13px] sm:text-base font-black uppercase italic leading-tight">{r.title}</h3>
+                    <p className="text-[7px] sm:text-[9px] font-bold tracking-[0.1em] text-muted-foreground/40 uppercase mt-0.5">{r.sub}</p>
+                    <div className={`mt-2 ${c.bg} ${c.border} border text-foreground/70 text-[7px] sm:text-[8px] font-black uppercase tracking-widest py-1 px-1.5 rounded-md flex items-center justify-center gap-0.5`}>
+                      <ChevronDown className={`w-2 h-2 transition-transform duration-200 ${isActive ? "rotate-180" : ""}`} />
+                      {isActive ? "Chiudi" : "Espandi"}
+                    </div>
                   </div>
                 </div>
               </motion.button>
@@ -105,13 +103,13 @@ const RepartiSection = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden mb-12 sm:mb-16"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden mb-6 sm:mb-10"
             >
-              <h4 className={`text-center ${colorStyles[reparti.find(r => r.id === activeReparto)!.color].text} font-bold uppercase tracking-[0.2em] mb-5 text-[10px] sm:text-xs`}>
-                Modulo {reparti.find(r => r.id === activeReparto)!.title} Attivo
+              <h4 className={`text-center ${colorStyles[reparti.find(r => r.id === activeReparto)!.color].text} font-bold uppercase tracking-[0.15em] mb-3 text-[9px] sm:text-[10px]`}>
+                {reparti.find(r => r.id === activeReparto)!.title}
               </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
                 {subjects[activeReparto].map((s) => {
                   const c = colorStyles[reparti.find(r => r.id === activeReparto)!.color];
                   return (
@@ -121,7 +119,7 @@ const RepartiSection = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={handleSelect}
-                      className={`glass-panel py-4 px-3 rounded-xl text-center transition-all duration-300 ${s.highlighted ? `border ${c.active}` : `border-l-2 ${c.active}`} font-bold uppercase tracking-wider text-xs sm:text-sm active:bg-primary/10`}
+                      className={`glass-panel py-3 px-2.5 rounded-lg text-center transition-all duration-200 ${s.highlighted ? `border ${c.active}` : `border-l-2 ${c.active}`} font-bold uppercase tracking-wider text-[11px] sm:text-xs active:bg-primary/10`}
                     >
                       {s.name}
                     </motion.button>
