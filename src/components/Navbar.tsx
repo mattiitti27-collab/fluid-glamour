@@ -55,21 +55,22 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-background z-[100] lg:hidden"
+            className="fixed inset-0 bg-background z-[100] lg:hidden overflow-hidden"
+            style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
           >
-            <div className="flex justify-between items-center px-4 py-2.5">
+            <div className="flex justify-between items-center px-5 py-3">
               <span className="text-lg font-black tracking-tighter">
                 Ripetiamo<span className="text-primary">.</span>
               </span>
               <button 
                 onClick={() => setMenuOpen(false)} 
-                className="text-foreground p-1.5 active:scale-90 transition-transform"
+                className="text-foreground p-2 active:scale-90 transition-transform"
               >
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6" />
               </button>
             </div>
             
-            <div className="flex flex-col items-center justify-center h-[calc(100%-50px)] gap-5 px-6">
+            <div className="flex flex-col items-center justify-center h-[calc(100dvh-60px)] gap-6 px-6" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
