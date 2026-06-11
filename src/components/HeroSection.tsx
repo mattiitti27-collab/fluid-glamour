@@ -30,7 +30,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ ...spring, delay: 0.45 }}
-        className="text-lg sm:text-2xl text-muted-foreground/40 mb-8 font-script"
+        className="text-[1.35rem] sm:text-[1.8rem] text-muted-foreground/40 mb-8 font-script"
       >
         "Da studenti per studenti"
       </motion.p>
