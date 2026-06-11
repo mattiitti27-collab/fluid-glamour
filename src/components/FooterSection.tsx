@@ -11,7 +11,7 @@ const FooterSection = () => {
               Ripetiamo<span className="text-primary">.</span>
             </h3>
             <p className="text-[10px] text-muted-foreground/40 font-light leading-relaxed italic">
-              Da studenti per studenti — chi ha appena superato quell'esame sa esattamente come aiutarti.
+              Da studenti per studenti. Chi ha appena superato quell'esame sa esattamente come aiutarti.
             </p>
           </div>
 
