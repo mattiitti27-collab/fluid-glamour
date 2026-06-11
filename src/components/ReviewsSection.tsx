@@ -85,16 +85,16 @@ const ReviewsSection = () => {
           </motion.div>
         )}
 
-        {/* Reviews - 2 cols on mobile, 3 on desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
+        {/* Reviews - masonry: 2 cols on mobile, 3 on desktop */}
+        <div className="columns-2 md:columns-3 gap-2.5 sm:gap-4">
           {reviews.map((r, i) => (
+            <div key={r.name} className="break-inside-avoid mb-2.5 sm:mb-4">
             <motion.div
-              key={r.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 50, damping: 20, delay: i * 0.06 }}
-              className="glass-panel p-3.5 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col justify-between"
+              className="glass-panel p-3.5 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col"
             >
               <div>
                 <div className="flex text-warning mb-2 gap-0.5">
@@ -116,6 +116,7 @@ const ReviewsSection = () => {
                 <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.1em] text-muted-foreground/50">{r.name}</p>
               </div>
             </motion.div>
+            </div>
           ))}
         </div>
       </div>
