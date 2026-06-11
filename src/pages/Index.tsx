@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
 import AmbientBackground from "@/components/AmbientBackground";
 import Navbar from "@/components/Navbar";
@@ -18,6 +19,7 @@ const ThreeBackground = lazy(() => import("@/components/ThreeBackground"));
 const Index = () => {
   return (
     <div className="relative min-h-screen scroll-smooth">
+      <SmoothScroll />
       <ScrollProgress />
 
       <AmbientBackground />
